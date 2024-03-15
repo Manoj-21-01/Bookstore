@@ -1,0 +1,99 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border-radius: box-sizing;
+}
+
+.container{
+    background-color: #9D9D9D;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+} 
+
+.image-cnt {
+    width: 50vw;
+    height: 75vh;
+    margin: 80px 290px;
+    border-radius: 15px;
+    background-color: #F5F5F5;
+    z-index: -1;
+}
+
+.bookstore-logo-cnt {
+    width: 270px;
+    border-radius: 50%;
+    margin: 50px 35px 0px;
+}
+
+#logo-content {
+    margin-top: 15px;
+    margin-left: 85px;
+    font-family: Roboto;
+    text-transform: uppercase;
+}
+
+.cnt {
+    width: 35vw;
+    height: 90vh;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 25px;
+    right: 210px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.data-cnt {
+    margin: 20px 50px;
+    height: 80vh;
+}
+
+.login {
+    display: flex;
+    text-transform: uppercase;
+    font-family: Roboto;
+}
+
+#login {
+    margin-left: 30px;
+    margin-right: 70px;
+}
+
+.login-form-cnt {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.forgot-cnt {
+    position: relative;
+    display: flex;
+    justify-content: right;
+    bottom: 20px;
+}
+
+.or-cnt {
+    margin: 30px 100px;
+}
+
+.other-options-cnt {
+    margin-top: 10px;
+}
+
+.fb-btn, .google-btn {
+    width: 13vw;
+}
+
+.fb-btn {
+    margin-right: 13px;
+}
+
+.signup-form-cnt {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    overflow-y: hidden;
+}

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="content">
+        <div class="image-cnt">
+            <img src="../../../assets/logo.png" alt="bookstore_logo" class="bookstore-logo-cnt">
+            <p id="logo-content">Online book shopping</p>
+            <div class="cnt">
+                <div class="data-cnt">
+                    <mat-tab-group>
+                        <mat-tab label="LOGIN">
+                            <form class="login-form-cnt">
+                                <mat-label>Email id</mat-label>
+                                <mat-form-field class="emailid-cnt" appearance="outline">
+                                  <input matInput type="text">
+                                </mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <mat-form-field class="pwd-cnt" appearance="outline" >
+                                    <input matInput type="password">
+                                </mat-form-field>
+                                <mat-label class="forgot-cnt">Forgot Password?</mat-label>
+                                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" class="login-btn">Login</button>
+                                <mat-label class="or-cnt">--------------- OR --------------</mat-label>
+                                <div class="other-options-cnt">
+                                    <button mat-raised-button color="primary" class="fb-btn">Facebook</button>
+                                    <button mat-raised-button class="google-btn">Google</button>
+                                </div>
+                              </form>
+                        </mat-tab>
+                        <mat-tab label="SIGNUP">
+                            <form class="signup-form-cnt">
+                            <mat-label>Full Name</mat-label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput type="text">
+                                </mat-form-field>
+                                <mat-label>Email id</mat-label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput type="email">
+                                </mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput type="password">
+                                </mat-form-field>
+                                <mat-label>Mobile Number</mat-label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput type="number">
+                                </mat-form-field>
+                                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" class="login-btn">Signup</button>
+                            </form>
+                        </mat-tab>
+                    </mat-tab-group>     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
