@@ -7,15 +7,18 @@
                 <div class="data-cnt">
                     <mat-tab-group>
                         <mat-tab label="LOGIN">
-                            <form class="login-form-cnt">
+                            <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="login-form-cnt">
                                 <mat-label>Email id</mat-label>
                                 <mat-form-field class="emailid-cnt" appearance="outline">
-                                  <input matInput type="text">
+                                  <input matInput type="email" formControlName="email">
                                 </mat-form-field>
+                                <div class="validator-color-cnt" *ngIf="submitted && login?.['email']?.errors?.['minlength']" id="validator-cnt">Email must be a valid email address</div>
+                                <div class="validator-color-cnt" *ngIf="submitted && login?.['email']?.errors?.['required']" id="validator-cnt">Email is required</div>
                                 <mat-label>Password</mat-label>
                                 <mat-form-field class="pwd-cnt" appearance="outline" >
-                                    <input matInput type="password">
+                                    <input matInput type="password" formControlName="password">
                                 </mat-form-field>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['password']?.errors?.['required']" id="pwd-validator-cnt">Password is required</div>
                                 <mat-label class="forgot-cnt">Forgot Password?</mat-label>
                                 <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" class="login-btn">Login</button>
                                 <mat-label class="or-cnt">--------------- OR --------------</mat-label>
@@ -26,24 +29,32 @@
                               </form>
                         </mat-tab>
                         <mat-tab label="SIGNUP">
-                            <form class="signup-form-cnt">
+                            <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="signup-form-cnt">
                             <mat-label>Full Name</mat-label>
                                 <mat-form-field appearance="outline">
-                                    <input matInput type="text">
+                                    <input matInput type="text" formControlName="fullName">
                                 </mat-form-field>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['fullName']?.errors?.['minlength']" id="validator-cnt">Name should contain atleast 4 characters</div>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['fullName']?.errors?.['required']" id="validator-cnt">Name is required</div>
                                 <mat-label>Email id</mat-label>
                                 <mat-form-field appearance="outline">
-                                    <input matInput type="email">
+                                    <input matInput type="email" formControlName="email">
                                 </mat-form-field>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['email']?.errors?.['minlength']" id="validator-cnt">Email must be a valid email address</div>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['email']?.errors?.['required']" id="validator-cnt">Email is required</div>
                                 <mat-label>Password</mat-label>
                                 <mat-form-field appearance="outline">
-                                    <input matInput type="password">
+                                    <input matInput type="password" formControlName="password">
                                 </mat-form-field>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['password']?.errors?.['required']" id="pwd-validator-cnt">Password is required</div>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['password']?.errors?.['minlength']" id="pwd-validator-cnt">Password must be atleast 6 characters</div>
                                 <mat-label>Mobile Number</mat-label>
                                 <mat-form-field appearance="outline">
-                                    <input matInput type="number">
+                                    <input matInput type="number" formControlName="mobileNumber">
                                 </mat-form-field>
-                                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" class="login-btn">Signup</button>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['mobileNumber']?.errors?.['required']" id="pwd-validator-cnt">Mobile Number is required</div>
+                                <div class="validator-color-cnt" *ngIf="submitted && f?.['mobileNumber']?.errors?.['minlength']" id="pwd-validator-cnt">Mobile Number must be a valid [IND] Number</div>
+                                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" class="login-btn" >Signup</button>
                             </form>
                         </mat-tab>
                     </mat-tab-group>     
