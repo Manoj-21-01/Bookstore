@@ -56,31 +56,23 @@ export class LoginComponent implements OnInit {
     console.log(this.registerForm.value);
   }
 
-  loginUser() {
+  loginUser(){
     this.submitOnLogin = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-  
-    const { email, password } = this.loginForm.value;
+      if (this.loginForm.invalid) {
+        return;
+      }
+    this.submitOnLogin = true;
+    const {email, password} = this.loginForm.value;
     this.userService.loginUser({
-      "email": email,
-      "password": password
-    }).subscribe((result: any) => {
-      this.userService.verifyLoginUser({ "accessToken": result.result.accessToken }).subscribe((verificationResult: any) => {
-        console.log(verificationResult);
-        localStorage.setItem("accessToken", result.result.accessToken);
-        alert("User logged in successfully");
-      }, verificationError => {
-        // alert("Error verifying login");
-        console.log(verificationError);
-      });
-    }, error => {
-      alert("Password is not correct, try again");
-      console.log(error);
-    });
+        "email": email,
+        "password": password,
+        "accessToken": "accessToken"
+      }).subscribe((result: any)=>{
+        localStorage.setItem("accessToken",result.result.accessToken);
+        alert("User logged in successfully")
+        console.log(result);},(error)=>{
+          alert("Please enter valid password")
+          console.log(error);});
+    console.log(this.loginForm.value);
   }
-
-  
-  
 }

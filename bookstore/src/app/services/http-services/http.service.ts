@@ -31,10 +31,7 @@ export class HttpService {
     return this.http.post(`${this.baseUrl}/bookstore_user/login`, data)
   }
 
-  // verifyLoginApi(data: object){
-  //   return this.http.post(`${this.baseUrl}/bookstore_user/verification/{token}`, data)
-  // }
-  verifyLoginApi(accessToken: object) {
-    return this.http.post<any>(`${this.baseUrl}/bookstore_user/verification/{token}`, { accessToken });
+  verifyLoginApi(){
+    return this.http.post(`${this.baseUrl}/bookstore_user/verification/{token}`, {headers: this.authHeader})
   }
 }
