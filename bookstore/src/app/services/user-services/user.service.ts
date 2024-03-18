@@ -17,4 +17,8 @@ export class UserService {
   loginUser(data:object){
     return this.http.loginApi(data);
   }
+
+  verifyLoginUser(accessToken:object){
+    return this.http.verifyLoginApi(accessToken);
+  }
 }

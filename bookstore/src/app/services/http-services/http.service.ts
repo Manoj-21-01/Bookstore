@@ -6,12 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
+  postService(arg0: string, data: {}) {
+    throw new Error('Method not implemented.');
+  }
+  getService(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   
 
   baseUrl: string = "https://bookstore.incubation.bridgelabz.com"
   private authHeader = new HttpHeaders({
     'Accept': "application/json",
-    Authorization: localStorage.getItem('token') || ""
+    Authorization: localStorage.getItem('accessToken') || ""
   })
   constructor(public http: HttpClient) { 
 
@@ -23,5 +29,12 @@ export class HttpService {
 
   loginApi(data: object){
     return this.http.post(`${this.baseUrl}/bookstore_user/login`, data)
+  }
+
+  // verifyLoginApi(data: object){
+  //   return this.http.post(`${this.baseUrl}/bookstore_user/verification/{token}`, data)
+  // }
+  verifyLoginApi(accessToken: object) {
+    return this.http.post<any>(`${this.baseUrl}/bookstore_user/verification/{token}`, { accessToken });
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user-services/user.service';
 import { Router } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent implements OnInit {
   registerForm !: FormGroup
   loginForm !: FormGroup
-  submitted: boolean = false
-
+  submitOnRegister: boolean = false
+  submitOnLogin: boolean = false
   ngOnInit(): void {
     
   }
@@ -23,7 +22,7 @@ export class LoginComponent implements OnInit {
       fullName: ['',[Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      mobileNumber: ['',[Validators.required, Validators.minLength(10)]]
+      phone: ['', [Validators.required, Validators.pattern(/^\+91[0-9]{10}$/)]]
     });
   
   this.loginForm = this.formBuilder.group({
@@ -42,13 +41,13 @@ export class LoginComponent implements OnInit {
   }
 
   registerUser(){
-    this.submitted = true;
-    const {fullName, email, password, mobileNumber} = this.registerForm.value;
+    this.submitOnRegister = true;
+    const {fullName, email, password, phone} = this.registerForm.value;
     this.userService.registerUser({
       "fullName": fullName,
       "email": email,
       "password": password,
-      "mobileNumber": mobileNumber,
+      "phone": phone,
       "service":"advance"
     }).subscribe((result)=>{
       console.log(result);
@@ -57,16 +56,31 @@ export class LoginComponent implements OnInit {
     console.log(this.registerForm.value);
   }
 
-  loginUser(){
-    this.submitted = true;
-      const {email, password} = this.loginForm.value;
-      this.userService.loginUser({
-          "email": email,
-          "password": password
-        }).subscribe((result: any)=>{
-          localStorage.setItem("token",result.id);
-          alert("User logged in successfully");
-          console.log(result);},error=>{console.log(error);});
-      console.log(this.loginForm.value);
+  loginUser() {
+    this.submitOnLogin = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+  
+    const { email, password } = this.loginForm.value;
+    this.userService.loginUser({
+      "email": email,
+      "password": password
+    }).subscribe((result: any) => {
+      this.userService.verifyLoginUser({ "accessToken": result.result.accessToken }).subscribe((verificationResult: any) => {
+        console.log(verificationResult);
+        localStorage.setItem("accessToken", result.result.accessToken);
+        alert("User logged in successfully");
+      }, verificationError => {
+        // alert("Error verifying login");
+        console.log(verificationError);
+      });
+    }, error => {
+      alert("Password is not correct, try again");
+      console.log(error);
+    });
   }
+
+  
+  
 }
