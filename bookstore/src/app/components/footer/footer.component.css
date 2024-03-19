@@ -1,0 +1,19 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border-radius: box-sizing;
+}
+
+.content {
+    position: relative;
+    top: 465px;
+    width: 100vw;
+    height: 10vh;
+    background-color: #2E1D1E;
+}
+
+#copyright-content {
+    color: white;  
+    margin: 0px 160px;
+    padding-top: 18px;
+}

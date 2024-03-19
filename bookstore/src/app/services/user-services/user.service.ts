@@ -18,7 +18,4 @@ export class UserService {
     return this.http.loginApi(data);
   }
 
-  verifyLoginUser(){
-    return this.http.verifyLoginApi();
-  }
 }

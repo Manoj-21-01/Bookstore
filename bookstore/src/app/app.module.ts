@@ -12,12 +12,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BookstoreComponent } from './components/bookstore/bookstore.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { BooksComponent } from './components/books/books.component';
+import { BooksContainerComponent } from './components/books-container/books-container.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    BookstoreComponent,
+    FooterComponent,
+    HeaderComponent,
+    BooksComponent,
+    BooksContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

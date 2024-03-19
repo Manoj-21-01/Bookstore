@@ -65,8 +65,7 @@ export class LoginComponent implements OnInit {
     const {email, password} = this.loginForm.value;
     this.userService.loginUser({
         "email": email,
-        "password": password,
-        "accessToken": "accessToken"
+        "password": password
       }).subscribe((result: any)=>{
         localStorage.setItem("accessToken",result.result.accessToken);
         alert("User logged in successfully")
