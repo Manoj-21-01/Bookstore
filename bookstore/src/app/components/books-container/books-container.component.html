@@ -18,10 +18,18 @@
         <div class="img-cnt">
             <div class="image">
                 <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
+                <p id="quick-view-cnt" routerLink="/bookstore/bookview">QUICK VIEW</p>
             </div>
         </div>
         <div class="img-content-cnt">
             <app-books [bookData]="bookObj"></app-books>
         </div>
+    </div>
+    <div>
+        <mat-paginator [length]="100"
+                [pageSizeOptions]="[20, 40, 80, 100]"
+                aria-label="Select page" 
+                [pageSize]="20" class="paginator-cnt">
+        </mat-paginator>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookstoreComponent } from './components/bookstore/bookstore.component';
 import { BooksContainerComponent } from './components/books-container/books-container.component';
+import { BookviewComponent } from './components/bookview/bookview.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: "books",
         component: BooksContainerComponent
+      },
+      {
+        path: "bookview",
+        component: BookviewComponent
       }
     ]
   }

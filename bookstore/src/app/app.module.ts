@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { BooksComponent } from './components/books/books.component';
 import { BooksContainerComponent } from './components/books-container/books-container.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { BookviewComponent } from './components/bookview/bookview.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FooterComponent,
     HeaderComponent,
     BooksComponent,
-    BooksContainerComponent
+    BooksContainerComponent,
+    BookviewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

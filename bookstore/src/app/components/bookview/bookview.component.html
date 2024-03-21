@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="home-book-cnt">
+        <p id="home-cnt" routerLink="/bookstore/books">Home /</p><span id="book-cnt">Book(01)</span>
+    </div>
+    <div class="img-content-cnt">
+        <div class="image-cnt">
+            <div class="sample-img-cnt">
+                <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="frontview" id="sample-img1">
+                <img src="../../../assets/book-img2.jpeg" alt="otherview" id="sample-img2">
+            </div>
+            <div class="buttons-cnt">
+                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" id="btn-cnt">ADD TO BAG</button>
+                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'black'}" id="btn-cnt"><mat-icon>favorite</mat-icon>WISHLIST</button>
+            </div>
+            <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book" class="book-img-cnt">
+        </div>
+        <div class="book-content-cnt">
+            <h2>The Design of Everyday Things</h2>
+            <p id="author">by Don Norman</p>
+            <div class="rating-cnt">
+                <div class="rating">4.5 <mat-icon id="star-cnt">star</mat-icon> </div>
+                <div class="users">(20)</div>
+            </div>
+            <div class="price-cnt">
+                <p class="discount-price-cnt">Rs. 1500</p>
+                <p class="actual-price-cnt">Rs. 2000</p>
+            </div>
+            <div class="border"></div>
+            <div class="book-details">
+                <mat-icon id="circle-icon">circle</mat-icon><p id="book-detail">Book Detail</p>
+            </div>
+            <p id="book-content">The Design of Everyday Things shows that good, usable design is possible. The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time.</p>
+            <div class="border"></div>
+            <h4>Customer Feedback</h4>
+            <div class="feedback-cnt">
+                <p>Overall rating</p>
+                <div class="stars-cnt">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                </div>
+                <input matInput type="text" placeholder="Write your review" class="text-box">
+                <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" id="submit-btn-cnt">Submit</button>
+            </div>
+            <div class="user-reviews">
+                <!-- user1 -->
+                <div class="profile-icon">
+                    <mat-icon id="user-logo"></mat-icon>
+                    <p id="name-logo">PS</p>
+                    <p id="user-name">Punith Sai</p>
+                </div>
+                <div class="user-rating-cnt">
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon-cnt">
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon-cnt">
+                    <p id="user-review">The Design of Everyday Things" by Don Norman is a timeless classic <br> that has been reshaping the way people think about design.</p>
+                </div>
+                <!-- user 2 -->
+                <div class="profile-icon">
+                    <mat-icon id="user-logo"></mat-icon>
+                    <p id="name-logo">HP</p>
+                    <p id="user-name">Harshit Pawar</p>
+                </div>
+                <div class="user-rating-cnt">
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <mat-icon id="user-rating">star</mat-icon>
+                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon-cnt">
+                    <p id="user-review">The Design of Everyday Things" is one of the most amazing books I <br>have ever read. It explores the design of everyday things through the <br>lens of human psychology.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
       }).subscribe((result: any)=>{
         localStorage.setItem("accessToken",result.result.accessToken);
         alert("User logged in successfully")
+        this.router.navigate(['/bookstore/books'])
         console.log(result);},(error)=>{
           alert("Please enter valid password")
           console.log(error);});
