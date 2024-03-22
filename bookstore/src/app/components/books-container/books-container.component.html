@@ -14,15 +14,15 @@
       </mat-accordion>  
 </div>
 <div class="books-cnt">
-    <div class="book-content" *ngFor="let bookObj of bookList">
+    <div class="book-content" *ngFor="let bookObj of bookList" routerLink="/bookstore/bookview" (click)="bookDetails(bookObj)">
         <div class="img-cnt">
             <div class="image">
                 <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
-                <p id="quick-view-cnt" routerLink="/bookstore/bookview">QUICK VIEW</p>
+                <p id="quick-view-cnt" routerLink="/bookstore/bookview" (click)="bookDetails(bookObj)">QUICK VIEW</p>
             </div>
         </div>
         <div class="img-content-cnt">
-            <app-books [bookData]="bookObj"></app-books>
+            <app-books [bookData]="bookObj" (click)="bookDetails(bookObj)"></app-books>
         </div>
     </div>
     <div>

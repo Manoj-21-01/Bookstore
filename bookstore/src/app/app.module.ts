@@ -21,6 +21,7 @@ import { BooksContainerComponent } from './components/books-container/books-cont
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BookviewComponent } from './components/bookview/bookview.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HeaderComponent,
     BooksComponent,
     BooksContainerComponent,
-    BookviewComponent
+    BookviewComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

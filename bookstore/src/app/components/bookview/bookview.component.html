@@ -9,21 +9,21 @@
                 <img src="../../../assets/book-img2.jpeg" alt="otherview" id="sample-img2">
             </div>
             <div class="buttons-cnt">
-                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" id="btn-cnt">ADD TO BAG</button>
+                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" id="btn-cnt">ADD TO CART</button>
                 <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'black'}" id="btn-cnt"><mat-icon>favorite</mat-icon>WISHLIST</button>
             </div>
             <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book" class="book-img-cnt">
         </div>
         <div class="book-content-cnt">
-            <h2>The Design of Everyday Things</h2>
-            <p id="author">by Don Norman</p>
+            <h2>{{book.bookName}}</h2>
+            <p id="author">by {{book.author}}</p>
             <div class="rating-cnt">
                 <div class="rating">4.5 <mat-icon id="star-cnt">star</mat-icon> </div>
                 <div class="users">(20)</div>
             </div>
             <div class="price-cnt">
-                <p class="discount-price-cnt">Rs. 1500</p>
-                <p class="actual-price-cnt">Rs. 2000</p>
+                <p class="discount-price-cnt">Rs. {{book.discountPrice}}</p>
+                <p class="actual-price-cnt">Rs. {{book.price}}</p>
             </div>
             <div class="border"></div>
             <div class="book-details">

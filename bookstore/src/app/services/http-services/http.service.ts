@@ -34,4 +34,8 @@ export class HttpService {
   getBooksList(){
     return this.http.get(`${this.baseUrl}/bookstore_user/get/book`, {headers:this.authHeader})
   }
+
+  addCart(){
+    return this.http.post(`${this.baseUrl}/bookstore_user/add_cart_item/{product_id}`, {headers:this.authHeader})
+  }
 }

@@ -13,4 +13,8 @@ export class BookService {
    getBookListCall(){
     return this.httpService.getBooksList()
    }
+
+   getCartList(){
+    return this.httpService.addCart()
+   }
 }
