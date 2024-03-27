@@ -25,7 +25,7 @@ const routes: Routes = [
         component: BooksContainerComponent
       },
       {
-        path: "bookview",
+        path: "bookview/:id",
         component: BookviewComponent
       },
       {

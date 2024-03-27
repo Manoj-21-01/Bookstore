@@ -17,10 +17,17 @@ interface BookObj {
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-
-  @Output() addToCart = new EventEmitter<BookObj>();
+  items: number = 1;
   constructor(public bookService: BookService) { 
 
   }
 
+  productQuantity(value: string) {
+    if (this.items < 5 && value == 'max') {
+      this.items+=1;
+    }
+    else if (this.items > 1 && value == 'min') {
+      this.items -= 1;
+    }
+  }
 }

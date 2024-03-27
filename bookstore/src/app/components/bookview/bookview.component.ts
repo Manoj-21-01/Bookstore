@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BookDataService } from 'src/app/services/book-data-services/book-data.service';
+import { ActivatedRoute } from '@angular/router';
+import { BookService } from 'src/app/services/book-services/book.service';
 
 interface bookItem {
   "bookName"?:string,
@@ -17,14 +18,31 @@ interface bookItem {
 })
 export class BookviewComponent {
   book:bookItem={};
+  initialValue:number = 0;
+  comment:string = "";
+  stars: number[] = [1,2,3,4,5]
 
-  constructor(private bookDataService: BookDataService) { }
+  constructor(public bookService: BookService, public route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.bookDataService.bookData$.subscribe((details:bookItem)=>
+
+    const idParam = this.route.snapshot.paramMap.get('id');
+    console.log(idParam);
+
+    if(idParam !==null)
     {
-      this.book=details;
-      console.log(this.book);
-    },
-    (error)=>{console.log(error);});
+    this.bookService.getBookListCall().subscribe((result:any)=>{      
+      for (let item of result.result)
+      {
+        if(item._id==idParam)
+        {
+          this.book=item;
+          console.log(item);
+        }
+      }});
+    }
+  }
+
+  setRating(star: number){
+    this.initialValue = star;
   }
 }

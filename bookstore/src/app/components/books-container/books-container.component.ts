@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BookDataService } from 'src/app/services/book-data-services/book-data.service';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
 
 interface BookObj {
@@ -19,9 +19,8 @@ interface BookObj {
 })
 export class BooksContainerComponent {
   bookList:BookObj[]=[]
-  router: any;
 
-  constructor(public bookService: BookService, public bookDataService: BookDataService) { }
+  constructor(public bookService: BookService, public router: Router) { }
   ngOnInit(): void {
     this.getBooksList();
   }
@@ -37,8 +36,7 @@ export class BooksContainerComponent {
       }
     );
   }
-  bookDetails(details: BookObj){
-    this.bookDataService.setData(details);
-    this.router.navigate(['/bookstore/bookview'])
+  bookDetails(id: string){
+    this.router.navigate(["/bookstore/bookview",id]);
   }
 }

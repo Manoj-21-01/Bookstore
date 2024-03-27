@@ -22,6 +22,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BookviewComponent } from './components/bookview/bookview.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CartComponent } from './components/cart/cart.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { CartComponent } from './components/cart/cart.component';
     HttpClientModule,
     MatIconModule,
     MatExpansionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

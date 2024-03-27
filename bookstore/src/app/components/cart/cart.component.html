@@ -1,1 +1,46 @@
-<p>cart works!</p>
+<div class="home-cart-cnt">
+    <p id="home-cnt" routerLink="/bookstore/books">Home /</p><span id="cart-cnt">My cart</span>
+</div>
+<div class="container">
+    <div class="cart-container">
+        <div class="location">
+            <p id="cart-details">My cart (1)</p>
+            <mat-form-field appearance="outline" class="loc-cnt">
+                <select matNativeControl>
+                    <option value="add1">SRM Nagar, Potheri, Kattankulathur, 603203</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="book-details">
+            <div class="book">
+                <img src="../../../assets/Image 12@2x.png" alt="book_img" width="60px">
+            </div>
+            <div class="bookinfo">
+                <h3 id="bookname">The Design of Everyday Things</h3>
+                <p>by Don Norman</p>
+                <div class="price-cnt">
+                    <p class="discount-price-cnt">Rs. 1500</p>
+                    <p class="actual-price-cnt">Rs. 2000</p>
+                </div>
+                <div class="buttons">
+                    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}" (click)="productQuantity('min')">
+                        <mat-icon style="color: black;">remove</mat-icon>
+                    </button>
+                    <button mat-raised-button color="primary" id="quantity" [ngStyle]="{'background-color': '#FAFAFA'}" style="color: black;" >{{items}}</button>
+                    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}" (click)="productQuantity('max')">
+                        <mat-icon style="color: black;">add</mat-icon>
+                    </button>
+                    <p id="remove">Remove</p>
+                </div>
+            </div>
+            <div><button mat-raised-button color="primary" class="order-btn">PLACE ORDER</button></div>
+        </div>
+    </div>
+    <div class="address-details">
+        <p>Address Details</p>
+    </div>
+    <div class="order-summary-details">
+        <p>Order Summary</p>
+    </div>
+</div>
+<app-footer></app-footer>

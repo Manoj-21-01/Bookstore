@@ -170,9 +170,13 @@
     color: white;
 }
 
-#star-icon {
-    width: 20px;
+#rating-star-cnt {
+    border-radius: 200px;
     margin-right: 10px;
+}
+
+.onSelect {
+    color: #FFCE00;
 }
 
 .text-box {

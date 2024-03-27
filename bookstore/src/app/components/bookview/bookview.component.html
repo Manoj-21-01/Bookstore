@@ -35,13 +35,16 @@
             <div class="feedback-cnt">
                 <p>Overall rating</p>
                 <div class="stars-cnt">
-                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
-                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
-                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
-                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
-                    <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/star_icon-icons.com_48224.png" alt="star_logo" id="star-icon">
+                <mat-icon 
+                    [ngStyle]="{'background-color': 'black'}" 
+                    id="rating-star-cnt" 
+                    *ngFor="let star of stars" 
+                    (click)="setRating(star)"
+                    [class.onSelect] = "star <= initialValue">
+                    star
+                </mat-icon>
                 </div>
-                <input matInput type="text" placeholder="Write your review" class="text-box">
+                <input matInput type="text" placeholder="Write your review" class="text-box" [(ngModel)]="comment">
                 <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" id="submit-btn-cnt">Submit</button>
             </div>
             <div class="user-reviews">

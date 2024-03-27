@@ -1,0 +1,115 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border-radius: box-sizing;
+}
+
+.container {
+    border: 1px solid #DCDCDC;
+    width: 60vw;
+    height: 52vh;
+    margin: 0% 12.5%;
+}
+
+.home-cart-cnt {
+    font-size: 12px;
+    display: flex;
+    margin: 1% 12.5%;
+}
+
+#home-cnt {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#cart-cnt {
+    margin-left: 5px;
+}
+
+.cart-container {
+    height: 50vh;
+}
+
+.location {
+    display: flex;
+    padding: 0% 4%;
+    padding-top: 1.5%;
+}
+
+#cart-details {
+    font-size: medium;
+    padding-top: 1%;
+}
+
+.loc-cnt {
+    margin-left: auto;
+}
+
+.book-details {
+    display: flex;
+    width: 30vw;
+    margin-left: 4%;
+}
+
+.bookinfo {
+    margin: 0% 10%;
+}
+
+#bookname {
+    line-height: 1;
+    width: 20vw;
+}
+
+.price-cnt {
+    display: flex;
+}
+
+.actual-price-cnt {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: xx-small;
+    padding-left: 5%;
+}
+
+.buttons {
+    margin-top: 3%;
+    display: flex;
+}
+
+#quantity {
+    position: relative;
+    top: 2px;
+    margin: 0% 5%;
+    width: 4vw;
+}
+
+#remove {
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+.order-btn {
+    margin-top: 100%;
+    margin-left: 90%;
+    width: 12.5vw;
+}
+
+.address-details {
+    border: 1px solid #DCDCDC;
+    margin-top: 4%;
+    height: 10vh;
+}
+
+.address-details p {
+    padding: 2.5%;
+}
+
+.order-summary-details {
+    border: 1px solid #DCDCDC;
+    margin-top: 2%;
+    height: 10vh;
+}
+
+.order-summary-details p {
+    padding: 2.5%;
+}
