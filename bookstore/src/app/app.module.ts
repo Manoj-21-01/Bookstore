@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTab, MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +23,9 @@ import { BookviewComponent } from './components/bookview/bookview.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CartComponent } from './components/cart/cart.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
     BooksComponent,
     BooksContainerComponent,
     BookviewComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatExpansionModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

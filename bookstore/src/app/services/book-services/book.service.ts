@@ -14,11 +14,7 @@ export class BookService {
     return this.httpService.getBooksList()
    }
 
-   addFeedbackData(id: string, data: object){
-    return this.httpService.addFeedback(id, data)
-   }
-
-   getCartList(){
-    return this.httpService.addCart()
+   addToCart(id: string){
+    return this.httpService.addCart(id)
    }
 }

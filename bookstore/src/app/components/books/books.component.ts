@@ -18,6 +18,7 @@ interface BookObj {
 })
 export class BooksComponent {
   @Input() bookData!: BookObj;
+  @Input() isVisible: boolean = false;
   constructor(public bookService: BookService){
 
   }

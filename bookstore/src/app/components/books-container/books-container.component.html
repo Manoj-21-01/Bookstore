@@ -13,22 +13,28 @@
       </mat-accordion>  
 </div>
 <div class="books-cnt">
-    <div class="book-content" *ngFor="let bookObj of bookList" (click)="bookDetails(bookObj._id)">
-        <div class="img-cnt">
-            <div class="image">
-                <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
-                <p id="quick-view-cnt" (click)="bookDetails(bookObj._id)">QUICK VIEW</p>
+    <ng-template #bookTemplate let-bookObj>
+        <div class="book-content" (click)="bookDetails(bookObj._id)">
+            <div class="img-cnt">
+                <div class="image">
+                    <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
+                    <p id="quick-view-cnt">QUICK VIEW</p>
+                </div>
+            </div>
+            <div class="img-content-cnt">
+                <app-books [bookData]="bookObj"></app-books>
             </div>
         </div>
-        <div class="img-content-cnt">
-            <app-books [bookData]="bookObj"></app-books>
-        </div>
-    </div>
+    </ng-template>
+    <ng-container *ngFor="let bookObj of getDisplayedBooks()">
+        <ng-container *ngTemplateOutlet="bookTemplate; context: {$implicit: bookObj}"></ng-container>
+    </ng-container>
     <div>
-        <mat-paginator [length]="100"
-                [pageSizeOptions]="[20, 40, 80, 100]"
+        <mat-paginator [length]="bookList.length"
+                [pageSizeOptions]="[8, 16, 20]"
                 aria-label="Select page" 
-                [pageSize]="20" class="paginator-cnt">
+                [pageSize]="8" class="paginator-cnt"
+                (page)="onPageChange($event)">
         </mat-paginator>
     </div>
 </div>

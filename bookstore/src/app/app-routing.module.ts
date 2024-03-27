@@ -6,6 +6,7 @@ import { BookstoreComponent } from './components/bookstore/bookstore.component';
 import { BooksContainerComponent } from './components/books-container/books-container.component';
 import { BookviewComponent } from './components/bookview/bookview.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: "cart",
         component: CartComponent
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent
       }
     ]
   }

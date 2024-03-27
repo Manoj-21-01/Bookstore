@@ -1,0 +1,38 @@
+.celeb-cnt {
+    width: 25vw;
+    margin: 0% 37.5% 0%;
+}
+
+.order-confirm p {
+    display: flex;
+    justify-content: center;
+    line-height: 0.8;
+}
+
+.user-data {
+    border: 1px solid #DCDCDC;
+    margin: 2% 20%;
+}
+
+.center-text-email {
+    padding-left: 8%;
+}
+
+.center-text-address {
+    padding-left: 15%;
+}
+
+.table-border {
+    border-style: none solid none none;
+    border-color: #00000040;
+    border-width: 1px;
+}
+
+.mat-column-contact {
+    width: 15vw;
+    text-align: center;
+}
+
+.redirect {
+    text-align: center;
+}

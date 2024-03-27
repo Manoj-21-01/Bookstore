@@ -1,15 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { BookService } from 'src/app/services/book-services/book.service';
 
-interface BookObj {
-  "bookName": string,
-  "description": string,
-  "author": string,
-  "quantity": number,
-  "price": number,
-  "discountPrice": number,
-  "_id": string
-}
 
 @Component({
   selector: 'app-cart',

@@ -9,7 +9,18 @@
                 <img src="../../../assets/book-img2.jpeg" alt="otherview" id="sample-img2">
             </div>
             <div class="buttons-cnt">
-                <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'red'}" id="btn-cnt">ADD TO CART</button>
+                <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#A03037'}" id="btn-cnt" (click)="addToCart()" *ngIf="addBookToCart else quantityUpdate" (click)="toggleButton()" >ADD TO CART</button>
+                <ng-template #quantityUpdate>
+                    <div class="buttons">
+                        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}">
+                            <mat-icon style="color: black;">remove</mat-icon>
+                        </button>
+                        <button mat-raised-button color="primary" id="quantity" [ngStyle]="{'background-color': '#FAFAFA'}" style="color: black;" >{{items}}</button>
+                        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}" id="add-btn">
+                            <mat-icon style="color: black;">add</mat-icon>
+                        </button>
+                    </div>
+                </ng-template>
                 <button mat-raised-button color="primary" [ngStyle]="{'background-color': 'black'}" id="btn-cnt"><mat-icon>favorite</mat-icon>WISHLIST</button>
             </div>
             <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book" class="book-img-cnt">

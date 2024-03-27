@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
+import { PageEvent } from '@angular/material/paginator';
 
 interface BookObj {
   "bookName": string,
@@ -19,6 +20,8 @@ interface BookObj {
 })
 export class BooksContainerComponent {
   bookList:BookObj[]=[]
+  pageIndex = 0;
+  pageSize: number = 8;
 
   constructor(public bookService: BookService, public router: Router) { }
   ngOnInit(): void {
@@ -39,4 +42,20 @@ export class BooksContainerComponent {
   bookDetails(id: string){
     this.router.navigate(["/bookstore/bookview",id]);
   }
+
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+  }
+
+  getDisplayedBooks(): any[] {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = Math.min(startIndex + this.pageSize, this.bookList.length);
+    return this.bookList.slice(startIndex, endIndex);
+  }
+  
+  getTotalBooks(): number {
+    return this.bookList.length;
+  }
+
 }
