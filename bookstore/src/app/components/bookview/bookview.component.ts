@@ -5,6 +5,7 @@ import { CartLogoService } from 'src/app/services/cart-logo-sevices/cart-logo.se
 
 interface bookItem {
   "bookName"?:string,
+  "description"?: string,
   "author"?:string,
   "quantity"?: number,
   "price"?: number,
@@ -32,8 +33,10 @@ export class BookviewComponent {
 
     const idParam = this.route.snapshot.paramMap.get('id');
     console.log(idParam);
+
     if(idParam!==null){
     this.idUser =idParam;}
+
     console.log(`${this.idUser}`);
 
     if(idParam !==null)
@@ -56,8 +59,10 @@ export class BookviewComponent {
 
   addToCart() {
     this.bookService.addToCart(this.idUser).subscribe((result:any)=>{
-      this.bookList = result.result._id;
-      console.log(this.bookList);
+      if (result.result) {
+        this.bookList = result.result._id;
+        console.log(this.bookList);
+      }
     },
     (error)=>{
       console.log(error);

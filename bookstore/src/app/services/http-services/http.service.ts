@@ -29,4 +29,12 @@ export class HttpService {
   addCart(id: string){
     return this.http.post(`${this.baseUrl}/bookstore_user/add_cart_item/${id}`,{}, {headers:this.authHeader})
   }
+
+  getCartList(){
+    return this.http.get(`${this.baseUrl}/bookstore_user/get_cart_items`, {headers:this.authHeader})
+  }
+
+  removeBookFromCart(id: string){ 
+    return this.http.delete(`${this.baseUrl}/bookstore_user/remove_cart_item/${id}`, {headers:this.authHeader})
+  }
 }

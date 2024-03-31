@@ -17,4 +17,12 @@ export class BookService {
    addToCart(id: string){
     return this.httpService.addCart(id)
    }
+
+   getCartListCall(){
+    return this.httpService.getCartList()
+   }
+
+   removeBook(id: string){
+    return this.httpService.removeBookFromCart(id)
+   }
 }

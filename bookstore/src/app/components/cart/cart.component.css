@@ -7,7 +7,7 @@
 .container {
     border: 1px solid #DCDCDC;
     width: 60vw;
-    height: 52vh;
+    height: auto;
     margin: 0% 12.5%;
 }
 
@@ -27,7 +27,8 @@
 }
 
 .cart-container {
-    height: 50vh;
+    height: auto;
+    padding-bottom: 10px;
 }
 
 .location {
@@ -53,6 +54,7 @@
 
 .bookinfo {
     margin: 0% 10%;
+    padding-bottom: 10%;
 }
 
 #bookname {
@@ -86,30 +88,35 @@
 #remove {
     margin-top: 5%;
     margin-left: 15%;
+    cursor: pointer;
 }
 
+.order-btn-cnt {
+    padding-bottom: 10px;
+}
 .order-btn {
-    margin-top: 100%;
-    margin-left: 90%;
+    margin-left: 75%;
     width: 12.5vw;
 }
 
 .address-details {
     border: 1px solid #DCDCDC;
-    margin-top: 4%;
-    height: 10vh;
+    width: 60vw;
+    height: auto;
+    margin: 2% 12.5%;
 }
 
 .address-details p {
-    padding: 2.5%;
+    padding: 3% 3% 1.5%;
 }
 
 .order-summary-details {
     border: 1px solid #DCDCDC;
-    margin-top: 2%;
-    height: 10vh;
+    margin: 2% 12.5%;
+    height: auto;
+    width: 60vw;
 }
 
 .order-summary-details p {
-    padding: 2.5%;
+    padding: 3% 3% 1.5%;
 }
