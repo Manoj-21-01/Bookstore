@@ -62,6 +62,18 @@
     width: 20vw;
 }
 
+.buttons button {
+    width: 2.5vw;
+    border: 1px solid #707070;
+    background-color: #FFFFFF;
+}
+
+.icon {
+    border-radius: 50%;
+    background-color: #DBDBDB;
+    cursor: pointer;
+}
+
 .price-cnt {
     display: flex;
 }
@@ -109,7 +121,76 @@
 .address-details p {
     padding: 3% 3% 1.5%;
 }
+.name-number {
+    margin-left: 3.5vw;
+}
+#customer-details, #order-details{
+    font-size: medium;
+}
+#new-address {
+    position: relative;
+    float: right;
+    bottom: 8.75vh;
+    right: 3vw;
+    color: #A03037;
+    border: 1px solid #A03037;
+    padding: 1% 2.5%;
+}
+#work-edit {
+    color: #A03037;
+    position: relative;
+    bottom: 8.75vh;
+    left: 8vw;
+    font-size: 12px;
+}
+.work-address {
+    position: relative;
+    bottom: 9vh;
+    margin-left: 3.5vw;
+    height: 23vh;
+}
+#address-field {
+    width: 41vw;
+}
+.user-details {
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 56vw;
+    height: 86vh;
+    padding-bottom: 5vh;
+}
 
+.input-field {
+    width: 20vw;
+    display: flex;
+}
+.number-field {
+    position: relative;
+    left: 21vw;
+    bottom: 16.75vh;
+}
+.address-option {
+    position: relative;
+    bottom: 18vh;
+}
+.home-address {
+    display: flex;
+    flex-direction: column;
+}
+.home-address mat-label {
+    margin-left: 3.5vw;
+}
+.home-address button {
+    width: 12vw;
+    margin-left: auto;
+    margin-top: 5vh;
+}
+#address {
+    line-height: 2;
+}
+#address-data {
+    width: 40vw;
+}
 .order-summary-details {
     border: 1px solid #DCDCDC;
     margin: 2% 12.5%;
@@ -117,6 +198,30 @@
     width: 60vw;
 }
 
+#order-summary-books {
+    margin-left: 2vw;
+}
+.bookData {
+    display: flex;
+    margin-bottom: 5vh;
+}
+.bookData img {
+    width: 5vw;
+    height: 16vh;
+}
+.bookInfo {
+    margin-left: 3vw;
+}
+#author {
+    line-height: 0;
+    width: 10vw;
+}
+.order button {
+    position: relative;
+    margin-left: 45vw;
+    margin-bottom: 4vh;
+    width: 12vw;
+}
 .order-summary-details p {
     padding: 3% 3% 1.5%;
 }

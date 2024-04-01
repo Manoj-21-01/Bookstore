@@ -37,4 +37,8 @@ export class HttpService {
   removeBookFromCart(id: string){ 
     return this.http.delete(`${this.baseUrl}/bookstore_user/remove_cart_item/${id}`, {headers:this.authHeader})
   }
+
+  updateBookFromCart(id:string,data:any){
+    return this.http.put(`${this.baseUrl}/cart_item_quantity/${id}`,data,{headers:this.authHeader});
+  }
 }

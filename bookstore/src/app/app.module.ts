@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginatorModule,
     MatSelectModule,
     MatBadgeModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

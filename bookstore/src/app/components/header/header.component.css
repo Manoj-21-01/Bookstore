@@ -13,7 +13,7 @@
 .content {
     display: flex;
     flex-direction: row;
-    margin:0px 160px;
+    margin-left: 160px;
     padding-top: 15px;
 }
 
@@ -34,8 +34,13 @@
     margin-left: 40px;
 }
 
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }  
+
 .icons-cnt {
-    margin-left: 170px;
+    margin-left: 19vw;
 }
 
 .label-cnt {

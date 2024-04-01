@@ -20,6 +20,10 @@
     margin-top: 1%;
 }
 
+.sorting {
+    cursor: pointer;
+}
+
 #count-cnt {
     font-size: 10px;
     opacity: 0.5;
@@ -37,7 +41,7 @@
     margin-right: 20px;
     margin-bottom: 30px;
     width: 18vw;
-    height: 55vh;
+    height: 59vh;
     cursor: pointer;
 }
 
@@ -79,7 +83,7 @@
 
 .img-content-cnt {
     width: 14.1vw;
-    height: 12.5vh;
+    height: 16.5vh;
     float: bottom;
     line-height: 10px;
     padding: 10px 25px 20px;

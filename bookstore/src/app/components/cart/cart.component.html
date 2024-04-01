@@ -24,25 +24,86 @@
                     <p class="actual-price-cnt">Rs. {{ cartBooks.price }}</p>
                 </div>
                 <div class="buttons">
-                    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}" (click)="productQuantity('min')">
-                        <mat-icon style="color: black;">remove</mat-icon>
+                    <button (click)="reduceBook(quantityToBuyList[i],cartDetails[i]._id,i)" class="icon">
+                        -
                     </button>
-                    <button mat-raised-button color="primary" id="quantity" [ngStyle]="{'background-color': '#FAFAFA'}" style="color: black;" >{{items}}</button>
-                    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" [ngStyle]="{'background-color': '#FAFAFA'}" (click)="productQuantity('max')">
-                        <mat-icon style="color: black;">add</mat-icon>
+                    <button id="quantity" style="color: black;">{{quantityToBuyList[i]}}</button>
+                    <button (click)="incrementBook(quantityToBuyList[i],cartBooks.quantity,cartDetails[i]._id,i)" class="icon">
+                        +
                     </button>
                     <label id="remove" (click)="removeBook(cartDetails[i]._id,i)">Remove</label>
                 </div>
             </div>
         </div>
-        <div class="order-btn-cnt"><button mat-raised-button color="primary" class="order-btn">PLACE ORDER</button></div>
+        <div class="order-btn-cnt"><button mat-raised-button color="primary" class="order-btn" (click)="addAddress()" *ngIf="placeorder">PLACE ORDER</button></div>
     </div>
     
 </div>
-<div class="address-details">
-    <p>Address Details</p>
+<div class="address-details" >
+    <p *ngIf="addressDetailsSection">Address Details</p>
+    <div *ngIf = "address">
+        <p id="customer-details">Customer Details</p>
+        <p id="new-address">Add New Address</p>
+        <div class="user-details">
+                <form>
+                    <div class="name-number">
+                        <mat-label>Full Name</mat-label>
+                        <mat-form-field appearance="outline" class="input-field">
+                            <input matInput type="text">
+                        </mat-form-field>
+                        <div class="number-field">
+                            <mat-label>Mobile Number</mat-label>
+                            <mat-form-field appearance="outline" class="input-field">
+                                <input matInput type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="address-option">
+                        <mat-radio-button value="1">1.HOME</mat-radio-button>
+                        <p id="work-edit">Edit</p>
+                        <div class="work-address">
+                            <mat-label>Address</mat-label>
+                                <mat-form-field appearance="outline" class="input-field" id="address-field">
+                                    <input matInput type="text">
+                                </mat-form-field>
+                                <mat-label>City/Town</mat-label>
+                            <mat-form-field appearance="outline" class="input-field">
+                                <input matInput type="text">
+                            </mat-form-field>
+                            <div class="number-field">
+                                <mat-label>State</mat-label>
+                                <mat-form-field appearance="outline" class="input-field">
+                                    <input matInput type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="home-address">
+                            <mat-radio-button value="2">2.WORK</mat-radio-button>
+                            <mat-label id="address">Address</mat-label>
+                            <mat-label id="address-data">BridgeLabz Solutions LLP,No. 42, 14th Main, 15th Cross, Sector 4, Opp to BDA complex, near Kumarakom restaurant, HSR Layout, Bangalore</mat-label>
+                            <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" (click)="continue()" *ngIf="proceedToOrderDetails">CONTINUE</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
 </div>
 <div class="order-summary-details">
-    <p>Order Summary</p>
+    <p *ngIf="orderSummary">Order Summary</p>
+    <div *ngIf="orderDetails" class="order">
+        <p id="order-details">Order Summary</p>
+        <div class="bookData" *ngFor="let cartBooks of bookList;">
+            <img src="../../../assets/Image 12@2x.png" alt="book_img" id="order-summary-books">
+            <div class="bookInfo">
+                <h3 id="bookName">{{ cartBooks.bookName }}</h3>
+                    <p id="author">by {{ cartBooks.author }}</p>
+                    <div class="price-cnt">
+                        <p class="discount-price-cnt">Rs. {{ cartBooks.discountPrice }}</p>
+                        <p class="actual-price-cnt">Rs. {{ cartBooks.price }}</p>
+                    </div>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" routerLink="/bookstore/checkout">CHECKOUT</button>
+    </div>
 </div>
 <app-footer></app-footer>

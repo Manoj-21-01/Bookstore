@@ -27,9 +27,20 @@ interface cartDetailsObj{
 export class CartComponent {
   bookList:BookObj[]=[]
   cartDetails:cartDetailsObj[]=[];
-  items: number = 1;
   book: any = {};
   quantityToBuyList:number[]=[];
+  cartValue: number = 0;
+
+  address: boolean = false;
+  addressDetailsSection:boolean = true;
+
+  placeorder: boolean = true;
+
+  orderSummary: boolean = true;
+  orderDetails: boolean = false;
+
+  proceedToOrderDetails: boolean = true;
+
   constructor(public bookService: BookService, public router: Router, private route: ActivatedRoute, public http: HttpClient) { 
 
   }
@@ -38,20 +49,13 @@ export class CartComponent {
     this.getCartList();
   }
 
-  productQuantity(value: string) {
-    if (this.items < 5 && value == 'max') {
-      this.items+=1;
-    }
-    else if (this.items > 1 && value == 'min') {
-      this.items -= 1;
-    }
-  }
   getCartList() {
     this.bookService.getCartListCall().subscribe(
       (result: any) => {
         this.cartDetails = result.result
-        this.cartDetails.map((item: cartDetailsObj) => {
+        this.cartDetails.forEach((item: cartDetailsObj) => {
           this.bookList.push(item.product_id);
+          this.quantityToBuyList.push(item.quantityToBuy);
         });
         console.log(this.bookList);
       },
@@ -60,11 +64,60 @@ export class CartComponent {
       }
     );
   }
+  sendBookQuantity(value:number, id:string){
+    const obj={
+      "quantityToBuy":value
+    }
+    this.bookService.updateBookQuantity(id,obj).subscribe((result)=>{console.log(result);},
+    (error)=>{console.log(error);});
+  }
+
+  reduceBook(value:number,id:string,i:number){
+    if(value>1)
+     {value--;}
+    this.sendBookQuantity(value,id);
+    this.updateQuantityToBuyList(value,i);
+  }
+
+  incrementBook(value:number,avbl:number,id:string,i:number)
+  {
+    if(value<avbl)
+      {value++;}
+    else if(value===avbl)
+    {
+      window.alert("Quantity Reached");
+    }
+    this.sendBookQuantity(value,id);
+    this.updateQuantityToBuyList(value,i);
+  }
+
+  updateQuantityToBuyList(value:number,index:number){
+    this.quantityToBuyList[index]=value;
+    this.cartValue = this.quantityToBuyList.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+      }, 0);
+  }
   
   removeBook(id:string,index:number){
     this.bookService.removeBook(id).subscribe((result)=>{
       console.log(result);
       this.bookList.splice(index, 1);
+      this.quantityToBuyList.splice(index, 1);
+      this.cartValue = this.quantityToBuyList.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+      }, 0);
     });
+    }
+
+    addAddress() {
+      this.address = true;
+      this.addressDetailsSection = !this.addressDetailsSection;
+      this.placeorder = !this.placeorder;
+    }
+
+    continue() {
+      this.proceedToOrderDetails = false;
+      this.orderDetails = !this.orderDetails;
+      this.orderSummary = !this.orderSummary;
     }
 }
