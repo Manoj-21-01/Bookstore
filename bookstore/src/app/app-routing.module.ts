@@ -7,6 +7,7 @@ import { BooksContainerComponent } from './components/books-container/books-cont
 import { BookviewComponent } from './components/bookview/bookview.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     children: [
       {
         path: "books",
-        component: BooksContainerComponent
+        component: BooksContainerComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: "bookview/:id",

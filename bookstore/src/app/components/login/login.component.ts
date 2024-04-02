@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user-services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  constructor(public formBuilder: FormBuilder, private userService: UserService, public router: Router) {
+  constructor(public formBuilder: FormBuilder, private userService: UserService, public router: Router, private authService: AuthService) {
    this.registerForm = this.formBuilder.group({
       fullName: ['',[Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -30,6 +31,10 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
+  }
+
+  loginuser() {
+    this.authService.loginuser();
   }
 
   get f(){

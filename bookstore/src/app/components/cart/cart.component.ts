@@ -30,6 +30,7 @@ export class CartComponent {
   book: any = {};
   quantityToBuyList:number[]=[];
   cartValue: number = 0;
+  selectedAddressType: string = '';
 
   address: boolean = false;
   addressDetailsSection:boolean = true;
@@ -47,6 +48,10 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.getCartList();
+  }
+
+  addressTypeChanged(event: any) {
+    this.selectedAddressType = event.value;
   }
 
   getCartList() {

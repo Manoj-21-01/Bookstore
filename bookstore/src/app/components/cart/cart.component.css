@@ -136,28 +136,27 @@
     border: 1px solid #A03037;
     padding: 1% 2.5%;
 }
-#work-edit {
-    color: #A03037;
-    position: relative;
-    bottom: 8.75vh;
-    left: 8vw;
-    font-size: 12px;
-}
 .work-address {
     position: relative;
     bottom: 9vh;
     margin-left: 3.5vw;
+    margin-top: 12vh;
     height: 23vh;
+}
+.address-type {
+    margin-left: 2.75vw;
 }
 #address-field {
     width: 41vw;
+}
+#selected-address {
+    margin-left: 3.4vw;
 }
 .user-details {
     margin-left: 10px;
     margin-top: 30px;
     width: 56vw;
     height: 86vh;
-    padding-bottom: 5vh;
 }
 
 .input-field {

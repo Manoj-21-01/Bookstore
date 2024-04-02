@@ -59,8 +59,7 @@
                         </div>
                     </div>
                     <div class="address-option">
-                        <mat-radio-button value="1">1.HOME</mat-radio-button>
-                        <p id="work-edit">Edit</p>
+                        <label id="selected-address">{{ selectedAddressType === '1' ? 'Home' :  (selectedAddressType === '2' ? 'Work' :'Other')}}</label>
                         <div class="work-address">
                             <mat-label>Address</mat-label>
                                 <mat-form-field appearance="outline" class="input-field" id="address-field">
@@ -78,9 +77,14 @@
                             </div>
                         </div>
                         <div class="home-address">
-                            <mat-radio-button value="2">2.WORK</mat-radio-button>
-                            <mat-label id="address">Address</mat-label>
-                            <mat-label id="address-data">BridgeLabz Solutions LLP,No. 42, 14th Main, 15th Cross, Sector 4, Opp to BDA complex, near Kumarakom restaurant, HSR Layout, Bangalore</mat-label>
+                            <mat-label id="address">Type</mat-label>
+                            <div class="address-type">
+                                <mat-radio-group aria-label="Select an option" (change)="addressTypeChanged($event)">
+                                    <mat-radio-button value="1">Home</mat-radio-button>
+                                    <mat-radio-button value="2">Work</mat-radio-button>
+                                    <mat-radio-button value="3">Other</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
                             <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" (click)="continue()" *ngIf="proceedToOrderDetails">CONTINUE</button>
                         </div>
                     </div>
