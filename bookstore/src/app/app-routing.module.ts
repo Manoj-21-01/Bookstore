@@ -19,14 +19,15 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
+    path: "bookstore/books",
+    component: BooksContainerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: "bookstore",
     component: BookstoreComponent,
     children: [
-      {
-        path: "books",
-        component: BooksContainerComponent,
-        canActivate: [AuthGuard],
-      },
+      
       {
         path: "bookview/:id",
         component: BookviewComponent

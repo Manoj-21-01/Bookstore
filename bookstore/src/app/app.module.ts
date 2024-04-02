@@ -27,6 +27,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatRadioModule } from '@angular/material/radio';
     BooksContainerComponent,
     BookviewComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

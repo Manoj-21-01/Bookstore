@@ -4,9 +4,21 @@
     border-radius: box-sizing;
 }
 
+#search-cnt {
+    position: relative;
+    width: 35vw;
+    height: 6vh;
+    bottom: 8.35vh;
+    left: 25vw;
+    border: none;
+    outline: 1px solid #ccc;
+}
+
 .container {
     margin: 20px 160px;
     height: 600px;
+    position: relative;
+    bottom: 6vh;
 }
 
 .home-book-cnt {

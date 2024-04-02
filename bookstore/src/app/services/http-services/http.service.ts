@@ -8,6 +8,7 @@ export class HttpService {
 
   baseUrl: string = "https://bookstore.incubation.bridgelabz.com"
   private authHeader = new HttpHeaders({
+    'Accept':"application/json",
     token: localStorage.getItem('accessToken') || ""
   })
   constructor(public http: HttpClient) { 
@@ -38,7 +39,7 @@ export class HttpService {
     return this.http.delete(`${this.baseUrl}/bookstore_user/remove_cart_item/${id}`, {headers:this.authHeader})
   }
 
-  updateBookFromCart(id:string,data:any){
+  updateCartQuantity(id:string,data:any){
     return this.http.put(`${this.baseUrl}/cart_item_quantity/${id}`,data,{headers:this.authHeader});
   }
 }

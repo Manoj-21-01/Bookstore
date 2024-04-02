@@ -1,40 +1,45 @@
-<div class="books-sort-cnt">
-    <p class="total-books-cnt">Books <span id="count-cnt">(19 items)</span></p>
-    <mat-accordion class="expansion-cnt">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Sort by relevance
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p (click)="sortByIncreasingPrice()" class="sorting">Price : Low to High</p>
-          <p (click)="sortByDecreasingPrice()" class="sorting">Price : High to Low</p>
-          </mat-expansion-panel>
-      </mat-accordion>  
-</div>
-<div class="books-cnt">
-    <ng-template #bookTemplate let-bookObj>
-        <div class="book-content" (click)="bookDetails(bookObj._id)">
-            <div class="img-cnt">
-                <div class="image">
-                    <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
-                    <p id="quick-view-cnt">QUICK VIEW</p>
+<app-header>
+</app-header>
+<input type="search" matInput placeholder="Search ..." id="search-cnt" [(ngModel)]="searchText">
+<div class="books-container">
+    <div class="books-sort-cnt">
+        <p class="total-books-cnt">Books <span id="count-cnt">(19 items)</span></p>
+        <mat-accordion class="expansion-cnt">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Sort by relevance
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p (click)="sortByIncreasingPrice()" class="sorting">Price : Low to High</p>
+              <p (click)="sortByDecreasingPrice()" class="sorting">Price : High to Low</p>
+              </mat-expansion-panel>
+          </mat-accordion>
+    </div>
+    <div class="books-cnt">
+        <ng-template #bookTemplate let-bookObj>
+            <div class="book-content" (click)="bookDetails(bookObj._id)">
+                <div class="img-cnt">
+                    <div class="image">
+                        <img src="https://m.media-amazon.com/images/I/416Hql52NCL.jpg" alt="book_image_logo" class="book-image-cnt">
+                        <p id="quick-view-cnt">QUICK VIEW</p>
+                    </div>
+                </div>
+                <div class="img-content-cnt">
+                    <app-books [bookData]="bookObj"></app-books>
                 </div>
             </div>
-            <div class="img-content-cnt">
-                <app-books [bookData]="bookObj"></app-books>
-            </div>
+        </ng-template>
+        <ng-container *ngFor="let bookObj of getDisplayedBooks() | filter:searchText">
+            <ng-container *ngTemplateOutlet="bookTemplate; context: {$implicit: bookObj}"></ng-container>
+        </ng-container>
+        <div>
+            <mat-paginator [length]="bookList.length"
+                    [pageSizeOptions]="[8, 16, 20]"
+                    aria-label="Select page"
+                    [pageSize]="8" class="paginator-cnt"
+                    (page)="onPageChange($event)">
+            </mat-paginator>
         </div>
-    </ng-template>
-    <ng-container *ngFor="let bookObj of getDisplayedBooks()">
-        <ng-container *ngTemplateOutlet="bookTemplate; context: {$implicit: bookObj}"></ng-container>
-    </ng-container>
-    <div>
-        <mat-paginator [length]="bookList.length"
-                [pageSizeOptions]="[8, 16, 20]"
-                aria-label="Select page" 
-                [pageSize]="8" class="paginator-cnt"
-                (page)="onPageChange($event)">
-        </mat-paginator>
     </div>
 </div>

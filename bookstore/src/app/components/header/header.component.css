@@ -5,7 +5,7 @@
 }
 
 .container {
-    width: 100vw;
+    width: auto;
     height: 10.5vh;
     background-color: #A03037;
 }
@@ -40,7 +40,7 @@
   }  
 
 .icons-cnt {
-    margin-left: 19vw;
+    margin-left: 57.1vw;
 }
 
 .label-cnt {

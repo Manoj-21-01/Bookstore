@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
-import { CartLogoService } from 'src/app/services/cart-logo-sevices/cart-logo.service';
 
 interface bookItem {
   "bookName"?:string,
@@ -18,7 +17,7 @@ interface bookItem {
   templateUrl: './bookview.component.html',
   styleUrls: ['./bookview.component.css']
 })
-export class BookviewComponent {
+export class BookviewComponent implements OnInit {
   addBookToCart: boolean = true;
   items: number = 1;
   bookList: bookItem[] = [];
@@ -28,7 +27,7 @@ export class BookviewComponent {
   stars: number[] = [1,2,3,4,5]
   idUser: string="";
 
-  constructor(public bookService: BookService, public route: ActivatedRoute, public cartLogoService: CartLogoService) { }
+  constructor(public bookService: BookService, public route: ActivatedRoute) { }
   ngOnInit(): void {
 
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -73,10 +72,4 @@ export class BookviewComponent {
   toggleButton () {
     this.addBookToCart = !this.addBookToCart;
   }
-
-  // updateCartIcon() {
-  //   this.cartLogoService.badgeCount$.subscribe(count => {
-  //     this.cartLogoService.updateBadgeCount(count + 1);
-  //   });
-  // }
 }

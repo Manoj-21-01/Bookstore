@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
 import { HttpClient } from '@angular/common/http';
+import { HttpService } from 'src/app/services/http-services/http.service';
 
 interface BookObj {
   "bookName": string,
@@ -31,6 +32,7 @@ export class CartComponent {
   quantityToBuyList:number[]=[];
   cartValue: number = 0;
   selectedAddressType: string = '';
+  searchText:any;
 
   address: boolean = false;
   addressDetailsSection:boolean = true;
@@ -42,7 +44,7 @@ export class CartComponent {
 
   proceedToOrderDetails: boolean = true;
 
-  constructor(public bookService: BookService, public router: Router, private route: ActivatedRoute, public http: HttpClient) { 
+  constructor(public bookService: BookService, public router: Router, private route: ActivatedRoute, public http: HttpClient, public httpService: HttpService) { 
 
   }
 
@@ -69,19 +71,13 @@ export class CartComponent {
       }
     );
   }
-  sendBookQuantity(value:number, id:string){
-    const obj={
-      "quantityToBuy":value
-    }
-    this.bookService.updateBookQuantity(id,obj).subscribe((result)=>{console.log(result);},
-    (error)=>{console.log(error);});
-  }
 
   reduceBook(value:number,id:string,i:number){
     if(value>1)
      {value--;}
     this.sendBookQuantity(value,id);
     this.updateQuantityToBuyList(value,i);
+    
   }
 
   incrementBook(value:number,avbl:number,id:string,i:number)
@@ -94,6 +90,15 @@ export class CartComponent {
     }
     this.sendBookQuantity(value,id);
     this.updateQuantityToBuyList(value,i);
+    
+  }
+
+  sendBookQuantity(value: number, id:string){
+    const obj={
+      "quantityToBuy":value
+    }
+    this.httpService.updateCartQuantity(id,obj).subscribe((result)=>{console.log(result);},
+    (error)=>{console.log(error);});
   }
 
   updateQuantityToBuyList(value:number,index:number){
@@ -111,7 +116,7 @@ export class CartComponent {
       this.cartValue = this.quantityToBuyList.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
       }, 0);
-    });
+    },(error) => console.log(error));
     }
 
     addAddress() {

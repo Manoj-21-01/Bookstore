@@ -26,7 +26,4 @@ export class BookService {
     return this.httpService.removeBookFromCart(id)
    }
 
-   updateBookQuantity(id:string,data:any) {
-    return this.httpService.updateBookFromCart(id,data)
-   }
 }

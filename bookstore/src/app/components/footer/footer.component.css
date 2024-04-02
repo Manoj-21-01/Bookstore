@@ -3,11 +3,13 @@
     margin: 0px;
     border-radius: box-sizing;
 }
-
+.container {
+    width: auto;
+}
 .content {
     position: relative;
-    top: 465px;
-    width: 100vw;
+    
+    width: auto;
     height: 10vh;
     background-color: #2E1D1E;
 }

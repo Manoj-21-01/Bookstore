@@ -23,6 +23,7 @@ export class BooksContainerComponent {
   pageIndex = 0;
   pageSize: number = 8;
   sorted: string = '';
+  searchText: any;
 
   constructor(public bookService: BookService, public router: Router) { }
   ngOnInit(): void {

@@ -4,7 +4,22 @@
     border-radius: box-sizing;
 }
 
-.container {
+#search-cnt {
+    position: relative;
+    width: 35vw;
+    height: 6vh;
+    bottom: 8.35vh;
+    left: 25vw;
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+.cart-component-container {
+    position: relative;
+    bottom: 5vh;
+}
+
+.cart-details-container {
     border: 1px solid #DCDCDC;
     width: 60vw;
     height: auto;
@@ -192,7 +207,7 @@
 }
 .order-summary-details {
     border: 1px solid #DCDCDC;
-    margin: 2% 12.5%;
+    margin: 2% 12.5% 9%;
     height: auto;
     width: 60vw;
 }

@@ -1,6 +1,22 @@
+#search-cnt {
+    position: relative;
+    width: 35vw;
+    height: 6vh;
+    bottom: 8.35vh;
+    left: 25vw;
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+.container {
+    width: 94vw;
+    margin-left: 2vw;
+    position: relative;
+    bottom: 5vh;
+}
 .celeb-cnt {
-    width: 25vw;
-    margin: 0% 37.5% 0%;
+    width: 22vw;
+    margin: 0% 39% 0%;
 }
 
 .order-confirm p {
@@ -11,7 +27,7 @@
 
 .user-data {
     border: 1px solid #DCDCDC;
-    margin: 2% 20%;
+    margin: 1% 20%;
 }
 
 .center-text-email {
@@ -35,4 +51,6 @@
 
 .redirect {
     text-align: center;
+    position: relative;
+    top: 1vh;
 }
