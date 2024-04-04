@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http-services/http.service';
+import { CartLogoService } from 'src/app/services/cart-logo-services/cart-logo.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface BookObj {
   "bookName": string,
@@ -33,6 +35,8 @@ export class CartComponent {
   cartValue: number = 0;
   selectedAddressType: string = '';
   searchText:any;
+  addUserAddress !: FormGroup
+  submitOnContinue: boolean = false;
 
   address: boolean = false;
   addressDetailsSection:boolean = true;
@@ -44,8 +48,20 @@ export class CartComponent {
 
   proceedToOrderDetails: boolean = true;
 
-  constructor(public bookService: BookService, public router: Router, private route: ActivatedRoute, public http: HttpClient, public httpService: HttpService) { 
+  constructor(public bookService: BookService, public router: Router, private route: ActivatedRoute, public http: HttpClient, public httpService: HttpService, public cartLogoService: CartLogoService, public formBuilder: FormBuilder) { 
+    this.addUserAddress = this.formBuilder.group({
+      fullName: ['',[Validators.required, Validators.minLength(4)]],
+      phone: ['',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      address: ['',[Validators.required]],
+      city: ['',[Validators.required]],
+      state: ['',[Validators.required]],
+      addressType: ['',[Validators.required]]
+    })
 
+  }
+
+  get f(){
+    return this.addUserAddress.controls;
   }
 
   ngOnInit(): void {
@@ -106,6 +122,7 @@ export class CartComponent {
     this.cartValue = this.quantityToBuyList.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
       }, 0);
+      this.cartLogoService.updateCartQuantity(this.cartValue);
   }
   
   removeBook(id:string,index:number){
@@ -116,6 +133,7 @@ export class CartComponent {
       this.cartValue = this.quantityToBuyList.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
       }, 0);
+      this.cartLogoService.updateCartQuantity(this.cartValue);
     },(error) => console.log(error));
     }
 
@@ -126,6 +144,7 @@ export class CartComponent {
     }
 
     continue() {
+      this.submitOnContinue = true;
       this.proceedToOrderDetails = false;
       this.orderDetails = !this.orderDetails;
       this.orderSummary = !this.orderSummary;

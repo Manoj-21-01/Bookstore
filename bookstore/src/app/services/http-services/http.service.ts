@@ -40,6 +40,6 @@ export class HttpService {
   }
 
   updateCartQuantity(id:string,data:any){
-    return this.http.put(`${this.baseUrl}/cart_item_quantity/${id}`,data,{headers:this.authHeader});
+    return this.http.put(`${this.baseUrl}/bookstore_user/cart_item_quantity/${id}`,data,{headers:this.authHeader});
   }
 }

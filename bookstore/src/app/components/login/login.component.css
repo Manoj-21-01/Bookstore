@@ -67,6 +67,15 @@
     margin-top: 20px;
     padding-bottom: 5px;
 }
+.height-cnt {
+    position: relative;
+    top: -2vh;
+}
+.validator-color-cnt {
+    color: red;
+    position: relative;
+    bottom: 3.5vh;
+}
 
 .forgot-cnt {
     position: relative;
@@ -97,6 +106,10 @@
     margin-top: 10px;
     overflow-y: hidden;
 }
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+    height: 34px !important;
 }
 
 @media only screen and (max-width: 769px) {

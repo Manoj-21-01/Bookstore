@@ -4,19 +4,29 @@
     border-radius: box-sizing;
 }
 
+.header-cnt {
+    position: fixed;
+    z-index: 1;
+    width: 99vw;
+}
+
+.header {
+    z-index: 0;
+}
+
 #search-cnt {
     position: relative;
-    width: 35vw;
+    width: 40vw;
     height: 6vh;
     bottom: 8.25vh;
-    left: 25vw;
+    left: 30vw;
     border: none;
     outline: 1px solid #ccc;
 }
 
 .books-container {
     position: relative;
-    bottom: 5vh;
+    top: 10vh;
 }
 
 .books-sort-cnt {

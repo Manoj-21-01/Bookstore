@@ -2,13 +2,14 @@
     <div class="content">
         <div class="img-content-cnt">
             <img src="../../../assets/book.png" alt="book_logo" width="30px" height="20px">
-            <p>Bookstore</p>
+            <p routerLink="/bookstore/books" style="cursor:pointer;">Bookstore</p>
         </div>
         <div class="icons-cnt">
             <mat-label class="label-cnt">Manoj</mat-label>
-            <mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person" id="person-icon"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person" id="person-icon">
+            </mat-icon>
             <mat-label class="label-cnt" id="cart-name-cnt">Cart</mat-label>            
-             <mat-icon id="cart-icon" routerLink="/bookstore/cart">shopping_cart</mat-icon>
+             <mat-icon id="cart-icon" matBadge={{bookQuantity}} routerLink="/bookstore/cart" aria-hidden="false">shopping_cart</mat-icon>
         </div>
     </div>
 </div>

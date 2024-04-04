@@ -22,8 +22,8 @@
                     <h3 id="bookname">{{ cartBooks.bookName }}</h3>
                     <p>by {{ cartBooks.author }}</p>
                     <div class="price-cnt">
-                        <p class="discount-price-cnt">Rs. {{ cartBooks.discountPrice }}</p>
-                        <p class="actual-price-cnt">Rs. {{ cartBooks.price }}</p>
+                        <p class="discount-price-cnt">Rs. {{ cartBooks.discountPrice *  quantityToBuyList[i] }}</p>
+                        <p class="actual-price-cnt">Rs. {{ cartBooks.price *  quantityToBuyList[i] }}</p>
                     </div>
                     <div class="buttons">
                         <button (click)="reduceBook(quantityToBuyList[i],cartDetails[i]._id,i)" class="icon">
@@ -47,16 +47,17 @@
             <p id="customer-details">Customer Details</p>
             <p id="new-address">Add New Address</p>
             <div class="user-details">
-                    <form>
+                    <form [formGroup]="addUserAddress">
                         <div class="name-number">
                             <mat-label>Full Name</mat-label>
                             <mat-form-field appearance="outline" class="input-field">
-                                <input matInput type="text">
+                                <input matInput type="text" formControlName="fullName">
                             </mat-form-field>
+                            <div *ngIf="submitOnContinue && f?.['fullName']?.errors?.['minlength']"></div>
                             <div class="number-field">
                                 <mat-label>Mobile Number</mat-label>
                                 <mat-form-field appearance="outline" class="input-field">
-                                    <input matInput type="number">
+                                    <input matInput type="number" formControlName="phone">
                                 </mat-form-field>
                             </div>
                         </div>
@@ -65,29 +66,29 @@
                             <div class="work-address">
                                 <mat-label>Address</mat-label>
                                     <mat-form-field appearance="outline" class="input-field" id="address-field">
-                                        <input matInput type="text">
+                                        <input matInput type="text" formControlName="address">
                                     </mat-form-field>
                                     <mat-label>City/Town</mat-label>
                                 <mat-form-field appearance="outline" class="input-field">
-                                    <input matInput type="text">
+                                    <input matInput type="text" formControlName="city">
                                 </mat-form-field>
                                 <div class="number-field">
                                     <mat-label>State</mat-label>
                                     <mat-form-field appearance="outline" class="input-field">
-                                        <input matInput type="text">
+                                        <input matInput type="text" formControlName="state">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="home-address">
                                 <mat-label id="address">Type</mat-label>
                                 <div class="address-type">
-                                    <mat-radio-group aria-label="Select an option" (change)="addressTypeChanged($event)">
+                                    <mat-radio-group aria-label="Select an option" (change)="addressTypeChanged($event)" formControlName="addressType">
                                         <mat-radio-button value="1">Home</mat-radio-button>
                                         <mat-radio-button value="2">Work</mat-radio-button>
                                         <mat-radio-button value="3">Other</mat-radio-button>
                                     </mat-radio-group>
                                 </div>
-                                <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#3371B5'}" (click)="continue()" *ngIf="proceedToOrderDetails">CONTINUE</button>
+                                <button mat-raised-button color="primary" (click)="continue()" *ngIf="proceedToOrderDetails" [disabled]="!addUserAddress.valid">CONTINUE</button>
                             </div>
                         </div>
                     </form>
@@ -98,14 +99,14 @@
         <p *ngIf="orderSummary">Order Summary</p>
         <div *ngIf="orderDetails" class="order">
             <p id="order-details">Order Summary</p>
-            <div class="bookData" *ngFor="let cartBooks of bookList;">
+            <div class="bookData" *ngFor="let cartBooks of bookList; let i = index">
                 <img src="../../../assets/Image 12@2x.png" alt="book_img" id="order-summary-books">
                 <div class="bookInfo">
                     <h3 id="bookName">{{ cartBooks.bookName }}</h3>
                         <p id="author">by {{ cartBooks.author }}</p>
                         <div class="price-cnt">
-                            <p class="discount-price-cnt">Rs. {{ cartBooks.discountPrice }}</p>
-                            <p class="actual-price-cnt">Rs. {{ cartBooks.price }}</p>
+                            <p class="discount-price-cnt">Rs. {{ cartBooks.discountPrice *  quantityToBuyList[i] }}</p>
+                            <p class="actual-price-cnt">Rs. {{ cartBooks.price *  quantityToBuyList[i] }}</p>
                         </div>
                 </div>
             </div>
