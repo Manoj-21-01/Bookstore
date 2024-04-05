@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-services/book.service';
 import { CartLogoService } from 'src/app/services/cart-logo-services/cart-logo.service';
+import { HttpService } from 'src/app/services/http-services/http.service';
 
 interface cartObj {
   "quantityToBuy": number
@@ -12,11 +14,10 @@ interface cartObj {
 })
 export class HeaderComponent {
 
-  router: any;
   bookQuantity:number=0;
   cartDetails:cartObj[]=[];
   cartQuantity: number = 0;
-  constructor(public bookService:BookService, public cartLogoService: CartLogoService) {}
+  constructor(public bookService:BookService, public cartLogoService: CartLogoService,private httpService: HttpService, private router: Router) {}
 
   ngOnInit(): void {
     this.getbookQuantity();
@@ -35,6 +36,11 @@ export class HeaderComponent {
   updatebookQuantity(){
     this.cartLogoService.cart$.subscribe((result)=>{this.bookQuantity=result;},
     (error)=>{console.log(error);});
+  }
+
+  logout() {
+    this.httpService.removeToken();
+    this.router.navigate(['']);
   }
 
 }

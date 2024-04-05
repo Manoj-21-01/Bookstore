@@ -6,8 +6,17 @@
         </div>
         <div class="icons-cnt">
             <mat-label class="label-cnt">Manoj</mat-label>
-            <mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person" id="person-icon">
+            <mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person" id="person-icon" [matMenuTriggerFor]="menu">
             </mat-icon>
+            <mat-menu #menu="matMenu">
+                <div class="user-options">
+                    <h3>Hello Manoj,</h3>
+                    <div class="shopping-basket" routerLink="/bookstore/cart">
+                        <mat-icon>shopping_basket</mat-icon> <p id="user-orders">My Orders</p>
+                    </div>
+                    <button mat-menu-item id="logout-btn" (click)="logout()">Logout</button>
+                </div>
+            </mat-menu>
             <mat-label class="label-cnt" id="cart-name-cnt">Cart</mat-label>            
              <mat-icon id="cart-icon" matBadge={{bookQuantity}} routerLink="/bookstore/cart" aria-hidden="false">shopping_cart</mat-icon>
         </div>

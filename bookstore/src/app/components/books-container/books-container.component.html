@@ -1,22 +1,17 @@
 <div class="header-cnt">
     <app-header class="header">
     </app-header>
+    <mat-icon id="search-bar">search</mat-icon>
     <input type="search" matInput placeholder="Search ..." id="search-cnt" [(ngModel)]="searchText">
 </div>
 <div class="books-container">
     <div class="books-sort-cnt">
         <p class="total-books-cnt">Books <span id="count-cnt">(19 items)</span></p>
-        <mat-accordion class="expansion-cnt">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Sort by relevance
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <p (click)="sortByIncreasingPrice()" class="sorting">Price : Low to High</p>
-              <p (click)="sortByDecreasingPrice()" class="sorting">Price : High to Low</p>
-              </mat-expansion-panel>
-          </mat-accordion>
+          <button mat-button [matMenuTriggerFor]="menu" class="expansion-cnt">Sort by relevance<mat-icon id="expand-icon">expand_more</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="sortByIncreasingPrice()" class="sorting">Price : Low to High</button>
+                <button mat-menu-item (click)="sortByDecreasingPrice()" class="sorting">Price : High to Low</button>
+            </mat-menu>
     </div>
     <div class="books-cnt">
         <ng-template #bookTemplate let-bookObj>
@@ -37,7 +32,7 @@
         </ng-container>
         <div>
             <mat-paginator [length]="bookList.length"
-                    [pageSizeOptions]="[8, 16, 20]"
+                    [pageSizeOptions]="[4,8, 16, 20]"
                     aria-label="Select page"
                     [pageSize]="8" class="paginator-cnt"
                     (page)="onPageChange($event)">

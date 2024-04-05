@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HttpService {  
-
+  private token = 'accessToken';
   baseUrl: string = "https://bookstore.incubation.bridgelabz.com"
   private authHeader = new HttpHeaders({
     'Accept':"application/json",
@@ -13,6 +13,21 @@ export class HttpService {
   })
   constructor(public http: HttpClient) { 
 
+  }
+
+  getAuthHeader(): HttpHeaders {
+    return this.authHeader;
+  }
+  removeToken(): void {
+    localStorage.removeItem(this.token);
+    this.updateAuthHeader();
+  }
+
+  private updateAuthHeader(): void {
+    this.authHeader = new HttpHeaders({
+      'Accept': 'application/json',
+      token: localStorage.getItem('accessToken') || ""
+    });
   }
 
   registerApi(data: object){

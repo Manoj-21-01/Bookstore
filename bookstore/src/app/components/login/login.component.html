@@ -1,8 +1,10 @@
 <div class="container">
     <div class="content">
         <div class="image-cnt">
-            <img src="../../../assets/logo.png" alt="bookstore_logo" class="bookstore-logo-cnt">
-            <p id="logo-content">Online book shopping</p>
+            <div class="media-image-cnt">
+                <img src="../../../assets/logo.png" alt="bookstore_logo" class="bookstore-logo-cnt">
+                <p id="logo-content">Online book shopping</p>
+            </div>
             <div class="cnt">
                 <div class="data-cnt">
                     <mat-tab-group>
@@ -21,6 +23,7 @@
                                 <div class="validator-color-cnt" *ngIf="submitOnLogin && login?.['password']?.errors?.['required']" id="pwd-validator-cnt">Password is required</div>
                                 <mat-label class="forgot-cnt">Forgot Password?</mat-label>
                                 <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#A03037'}" class="login-btn" (click)="loginuser()">Login</button>
+                                <img src="../../../assets/logo.png" alt="bookstore_logo" class="login-img-display">
                                 <mat-label class="or-cnt">--------------- OR --------------</mat-label>
                                 <div class="other-options-cnt">
                                     <button mat-raised-button color="primary" class="fb-btn">Facebook</button>

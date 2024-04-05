@@ -28,6 +28,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { FilterPipe } from './pipe/filter.pipe';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     MatSelectModule,
     MatBadgeModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
